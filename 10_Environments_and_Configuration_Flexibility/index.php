@@ -4,8 +4,9 @@ require 'functions.php';
 // require 'router.php';
 require 'Database.php';
 
-// Connect to database, and execute a query.
-$db = new Database();
+$config = require('config.php');
+
+$db = new Database($config['database'], 'root', 1111111111);
 
 $posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 
